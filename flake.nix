@@ -27,7 +27,7 @@
 
     base16-vim = {
       flake = false;
-      url = "github:chriskempson/base16-vim";
+      url = "github:tinted-theming/base16-vim";
     };
 
     base16.url = "github:SenchoPens/base16.nix";
@@ -43,7 +43,7 @@
       # TODO: Unlocking the input and pointing to official repository requires
       # updating the patch:
       # https://github.com/danth/stylix/pull/224#discussion_r1460339607.
-      url = "github:GNOME/gnome-shell/45.1";
+      url = "github:GNOME/gnome-shell/46.1";
     };
 
     # The 'home-manager' input is used to generate the documentation.

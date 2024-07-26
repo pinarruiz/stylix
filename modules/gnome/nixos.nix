@@ -1,18 +1,19 @@
-{ lib, pkgs, config, ... }@args:
+{ lib, pkgs, config, ... }:
 
 let
-  theme = import ./theme.nix args;
+  theme = pkgs.callPackage ./theme.nix {
+    inherit (config.lib.stylix) colors templates;
+  };
 
 in {
   options.stylix.targets.gnome.enable =
-    lib.mkOption {
-      description = "Whether to style GNOME and GDM";
-      type = lib.types.bool;
-      default = config.stylix.autoEnable
-             && config.services.xserver.desktopManager.gnome.enable;
-    };
+    config.lib.stylix.mkEnableTarget "GNOME and GDM" true;
 
-  config = lib.mkIf config.stylix.targets.gnome.enable {
+  config = lib.mkIf (
+    config.stylix.enable
+    && config.stylix.targets.gnome.enable
+    && config.services.xserver.desktopManager.gnome.enable
+  ) {
     # As Stylix is controlling the wallpaper, there is no need for this
     # pack of default wallpapers to be installed.
     # If you want to use one, you can set stylix.image to something like
