@@ -1,11 +1,11 @@
-{ config, ... }:
+{ config, lib, ... }:
 
 let
   cfg = config.stylix.fonts;
-in {
+in
+{
   imports = [ ../fonts.nix ];
-  config.fonts = {
-    fontDir.enable = true;
-    fonts = cfg.packages;
+  config.fonts = lib.mkIf config.stylix.enable {
+    inherit (cfg) packages;
   };
 }

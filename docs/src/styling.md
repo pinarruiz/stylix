@@ -11,7 +11,7 @@ applications that don't fit into any of the groups below. In this case it is up
 to the committer to make sure said application fits in stylistically with the
 rest of the themed applications.
 
-It is also importent to note that this is a growing theming guide and when theming an application and you find the guide to be lacking in any way in
+It is also important to note that this is a growing theming guide and when theming an application and you find the guide to be lacking in any way in
 terms of direction, you are encouraged to open an issue regarding what you would like to see added to the style guide.
 
 ## Terms
@@ -67,10 +67,10 @@ An urgent window is one which is grabbing for attention - Windows shows this by
 a flashing orange taskbar icon.
 
 - Unfocused window border: base03
-- Focused window border: base0A
-- Unfocused window border in group: base0D
-- Focused window border in group: base06
-- Urgent window border: base07
+- Focused window border: base0D
+- Unfocused window border in group: base03
+- Focused window border in group: base0D
+- Urgent window border: base08
 - Window title text: base05
 
 ## Notifications and Popups
