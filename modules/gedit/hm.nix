@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }:
+{ config, lib, ... }:
 
 let
   style = config.lib.stylix.colors {
@@ -6,11 +6,12 @@ let
     extension = "xml";
   };
 
-in {
+in
+{
   options.stylix.targets.gedit.enable =
     config.lib.stylix.mkEnableTarget "GEdit" true;
 
-  config = lib.mkIf config.stylix.targets.gedit.enable {
+  config = lib.mkIf (config.stylix.enable && config.stylix.targets.gedit.enable) {
     xdg.dataFile = {
       "gedit/styles/stylix.xml".source = style;
     };
